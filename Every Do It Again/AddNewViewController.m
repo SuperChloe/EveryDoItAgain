@@ -39,7 +39,7 @@
     int priority = [self.priorityField.text intValue];
 
     [self.delegate addNewTitle:title description:descr andPriority:priority];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end
