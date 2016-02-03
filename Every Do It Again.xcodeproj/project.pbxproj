@@ -15,6 +15,8 @@
 		89DA16521C62625300133953 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89DA16501C62625300133953 /* Main.storyboard */; };
 		89DA16541C62625300133953 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89DA16531C62625300133953 /* Assets.xcassets */; };
 		89DA16571C62625300133953 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89DA16551C62625300133953 /* LaunchScreen.storyboard */; };
+		89DA16621C626E1900133953 /* ToDo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DA165F1C626E1900133953 /* ToDo+CoreDataProperties.m */; };
+		89DA16631C626E1900133953 /* ToDo.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DA16611C626E1900133953 /* ToDo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,10 @@
 		89DA16531C62625300133953 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89DA16561C62625300133953 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89DA16581C62625300133953 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89DA165E1C626E1900133953 /* ToDo+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ToDo+CoreDataProperties.h"; sourceTree = "<group>"; };
+		89DA165F1C626E1900133953 /* ToDo+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ToDo+CoreDataProperties.m"; sourceTree = "<group>"; };
+		89DA16601C626E1900133953 /* ToDo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDo.h; sourceTree = "<group>"; };
+		89DA16611C626E1900133953 /* ToDo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +80,10 @@
 				89DA16551C62625300133953 /* LaunchScreen.storyboard */,
 				89DA16581C62625300133953 /* Info.plist */,
 				89DA16471C62625300133953 /* Every_Do_It_Again.xcdatamodeld */,
+				89DA165E1C626E1900133953 /* ToDo+CoreDataProperties.h */,
+				89DA165F1C626E1900133953 /* ToDo+CoreDataProperties.m */,
+				89DA16601C626E1900133953 /* ToDo.h */,
+				89DA16611C626E1900133953 /* ToDo.m */,
 				89DA16411C62625300133953 /* Supporting Files */,
 			);
 			path = "Every Do It Again";
@@ -158,9 +168,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89DA16631C626E1900133953 /* ToDo.m in Sources */,
 				89DA164F1C62625300133953 /* DetailViewController.m in Sources */,
 				89DA164C1C62625300133953 /* MasterViewController.m in Sources */,
 				89DA16461C62625300133953 /* AppDelegate.m in Sources */,
+				89DA16621C626E1900133953 /* ToDo+CoreDataProperties.m in Sources */,
 				89DA16491C62625300133953 /* Every_Do_It_Again.xcdatamodeld in Sources */,
 				89DA16431C62625300133953 /* main.m in Sources */,
 			);
@@ -309,6 +321,7 @@
 				89DA165D1C62625300133953 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
