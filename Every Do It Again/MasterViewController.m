@@ -37,22 +37,24 @@
 }
 
 - (void)insertNewObject:(id)sender {
-    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    ToDo *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-        
-    // If appropriate, configure the new managed object.
-    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:@"testing" forKey:@"title"];
-        
-    // Save the context.
-    NSError *error = nil;
-    if (![context save:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
+//    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+//    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
+//    ToDo *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+//        
+//    // If appropriate, configure the new managed object.
+//    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
+//    [newManagedObject setValue:@"testing" forKey:@"title"];
+//        
+//    // Save the context.
+//    NSError *error = nil;
+//    if (![context save:&error]) {
+//        // Replace this implementation with code to handle the error appropriately.
+//        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+//        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+//        abort();
+//    }
+    
+    [self performSegueWithIdentifier:@"addNew" sender:self];
 }
 
 #pragma mark - Segues
@@ -62,10 +64,13 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         ToDo *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
-      //  [controller setDetailItem:object];
-        controller.object = object;
+        controller.detailItem = object;
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
+    }
+    
+    if ([segue.identifier isEqualToString:@"addNew"]) {
+   //     [segue.destinationViewController setDelegate:self];
     }
 }
 
