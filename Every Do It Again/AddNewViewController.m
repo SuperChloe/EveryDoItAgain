@@ -20,7 +20,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    UIColor *topColor = [UIColor colorWithRed:0.0/255.0 green:128.0/255.0 blue:255.0/255.0 alpha:1.0];
+    UIColor *bottomColor = [UIColor colorWithRed:0.0/255.0 green:64.0/255.0 blue:128.0/255.0 alpha:1.0];
+    CAGradientLayer *viewGradient = [CAGradientLayer layer];
+    viewGradient.colors = [NSArray arrayWithObjects: (id)topColor.CGColor, (id)bottomColor.CGColor, nil];
+    viewGradient.frame = self.view.bounds;
+    [self.view.layer insertSublayer:viewGradient atIndex:0];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,16 +37,7 @@
     NSString *title = self.titleField.text;
     NSString *descr = self.descrField.text;
     int priority = [self.priorityField.text intValue];
-//    AppDelegate *del = [UIApplication sharedApplication].delegate;
-//    ToDo *newToDo = [NSEntityDescription insertNewObjectForEntityForName:@"ToDo" inManagedObjectContext:del.managedObjectContext];
-    
-    
-    // If appropriate, configure the new managed object.
-    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-//    newToDo.title = self.titleField.text;
-  //  newToDo.descr = self.descrField.text;
 
-  //  newToDo.priority = [self.priorityField.text intValue];
     [self.delegate addNewTitle:title description:descr andPriority:priority];
     [self dismissViewControllerAnimated:YES completion:nil];
 }

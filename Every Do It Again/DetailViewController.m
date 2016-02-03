@@ -22,7 +22,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    UIColor *topColor = [UIColor colorWithRed:0.0/255.0 green:128.0/255.0 blue:255.0/255.0 alpha:1.0];
+    UIColor *bottomColor = [UIColor colorWithRed:0.0/255.0 green:64.0/255.0 blue:128.0/255.0 alpha:1.0];
+    CAGradientLayer *viewGradient = [CAGradientLayer layer];
+    viewGradient.colors = [NSArray arrayWithObjects: (id)topColor.CGColor, (id)bottomColor.CGColor, nil];
+    viewGradient.frame = self.view.bounds;
+    [self.view.layer insertSublayer:viewGradient atIndex:0];
     [self configureView];
 }
 
