@@ -17,7 +17,7 @@
 
 - (void)configureView {
     // Update the user interface for the detail item.
-        self.detailDescriptionLabel.text = self.detailItem.title;
+        self.detailDescriptionLabel.text = self.detailItem.descr;
 }
 
 - (void)viewDidLoad {
