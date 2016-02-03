@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ToDo.h"
+
+@protocol AddNewProtocol <NSObject>
+
+- (void)addNewTitle:(NSString *)title description:(NSString *)descr andPriority:(int)priority;
+
+@end
 
 @interface AddNewViewController : UIViewController
+
+@property (weak, nonatomic) id <AddNewProtocol> delegate;
 
 @end

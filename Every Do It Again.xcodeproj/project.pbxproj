@@ -18,6 +18,7 @@
 		89DA16621C626E1900133953 /* ToDo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DA165F1C626E1900133953 /* ToDo+CoreDataProperties.m */; };
 		89DA16631C626E1900133953 /* ToDo.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DA16611C626E1900133953 /* ToDo.m */; };
 		89DA16661C628DD700133953 /* AddNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DA16651C628DD700133953 /* AddNewViewController.m */; };
+		89DA16691C62A7DF00133953 /* ToDoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89DA16681C62A7DF00133953 /* ToDoCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		89DA16611C626E1900133953 /* ToDo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDo.m; sourceTree = "<group>"; };
 		89DA16641C628DD700133953 /* AddNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewViewController.h; sourceTree = "<group>"; };
 		89DA16651C628DD700133953 /* AddNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewViewController.m; sourceTree = "<group>"; };
+		89DA16671C62A7DF00133953 /* ToDoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoCell.h; sourceTree = "<group>"; };
+		89DA16681C62A7DF00133953 /* ToDoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,8 @@
 				89DA16641C628DD700133953 /* AddNewViewController.h */,
 				89DA16651C628DD700133953 /* AddNewViewController.m */,
 				89DA16501C62625300133953 /* Main.storyboard */,
+				89DA16671C62A7DF00133953 /* ToDoCell.h */,
+				89DA16681C62A7DF00133953 /* ToDoCell.m */,
 				89DA16531C62625300133953 /* Assets.xcassets */,
 				89DA16551C62625300133953 /* LaunchScreen.storyboard */,
 				89DA16581C62625300133953 /* Info.plist */,
@@ -181,6 +186,7 @@
 				89DA16621C626E1900133953 /* ToDo+CoreDataProperties.m in Sources */,
 				89DA16491C62625300133953 /* Every_Do_It_Again.xcdatamodeld in Sources */,
 				89DA16431C62625300133953 /* main.m in Sources */,
+				89DA16691C62A7DF00133953 /* ToDoCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,8 +9,10 @@
 #import "MasterViewController.h"
 #import "DetailViewController.h"
 #import "ToDo.h"
+#import "AddNewViewController.h"
+#import "ToDoCell.h"
 
-@interface MasterViewController ()
+@interface MasterViewController () <AddNewProtocol>
 
 @end
 
@@ -37,24 +39,27 @@
 }
 
 - (void)insertNewObject:(id)sender {
-//    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-//    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-//    ToDo *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-//        
-//    // If appropriate, configure the new managed object.
-//    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-//    [newManagedObject setValue:@"testing" forKey:@"title"];
-//        
-//    // Save the context.
-//    NSError *error = nil;
-//    if (![context save:&error]) {
-//        // Replace this implementation with code to handle the error appropriately.
-//        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-//        abort();
-//    }
-    
     [self performSegueWithIdentifier:@"addNew" sender:self];
+}
+
+- (void)addNewTitle:(NSString *)title description:(NSString *)descr andPriority:(int)priority {
+    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
+    ToDo *newToDo = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    
+    newToDo.title = title;
+    newToDo.descr = descr;
+    newToDo.priority = [NSNumber numberWithInt:priority];
+    
+    // Save the context.
+    NSError *error = nil;
+    if (![context save:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+
 }
 
 #pragma mark - Segues
@@ -70,7 +75,7 @@
     }
     
     if ([segue.identifier isEqualToString:@"addNew"]) {
-   //     [segue.destinationViewController setDelegate:self];
+        [segue.destinationViewController setDelegate:self];
     }
 }
 
@@ -86,7 +91,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    ToDoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
@@ -111,9 +116,10 @@
     }
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"title"] description];
+- (void)configureCell:(ToDoCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    ToDo *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.titleLabel.text = object.title;
+    cell.priorityLabel.text = [NSString stringWithFormat:@"%@", object.priority];
 }
 
 #pragma mark - Fetched results controller

@@ -80,24 +80,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="Arm-wq-HPj" style="IBUITableViewCellStyleDefault" id="WCw-Qf-5nD">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="WCw-Qf-5nD" customClass="ToDoCell">
                                 <rect key="frame" x="0.0" y="86" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Arm-wq-HPj">
-                                            <rect key="frame" x="15" y="0.0" width="570" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROJ-9H-boe">
+                                            <rect key="frame" x="68" y="14" width="463" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXD-Vr-84i">
+                                            <rect key="frame" x="8" y="14" width="37" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
+                                    <outlet property="priorityLabel" destination="cXD-Vr-84i" id="BQP-Om-Gov"/>
+                                    <outlet property="titleLabel" destination="ROJ-9H-boe" id="bQ9-Uj-5Ta"/>
                                     <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showDetail" id="6S0-TO-JiA"/>
                                 </connections>
                             </tableViewCell>
@@ -110,7 +117,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8"/>
                     <connections>
-                        <segue destination="2LM-tp-jQm" kind="show" identifier="addNew" id="Qg8-J7-fk5"/>
+                        <segue destination="2LM-tp-jQm" kind="modal" identifier="addNew" id="Qg8-J7-fk5"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
@@ -130,18 +137,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7A0-W7-Sgh">
-                                <rect key="frame" x="20" y="94" width="379" height="30"/>
+                                <rect key="frame" x="20" y="119" width="379" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iVY-U8-dHw">
-                                <rect key="frame" x="20" y="183" width="379" height="30"/>
+                                <rect key="frame" x="20" y="169" width="379" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Priority Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="57v-3y-2Zj">
+                                <rect key="frame" x="20" y="218" width="118" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddh-pA-vrn">
+                                <rect key="frame" x="20" y="269" width="92" height="30"/>
+                                <state key="normal" title="Add Item"/>
+                                <connections>
+                                    <action selector="submit:" destination="2LM-tp-jQm" eventType="touchUpInside" id="hO1-i6-wVI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="descrField" destination="iVY-U8-dHw" id="E2t-7K-2ew"/>
+                        <outlet property="priorityField" destination="57v-3y-2Zj" id="iFY-EJ-rja"/>
+                        <outlet property="submitButton" destination="ddh-pA-vrn" id="iuq-me-nH3"/>
+                        <outlet property="titleField" destination="7A0-W7-Sgh" id="8XW-y6-3Eb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rW1-0x-alf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
